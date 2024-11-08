@@ -1,0 +1,156 @@
+<style> 
+*{
+    box-sizing: border-box;
+}
+/* Big container */
+.proj-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchBar {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    border-radius: 60px;
+    position: relative;
+    overflow: hidden;
+    transition: .5s;
+}
+.changeWidth {
+    width: 400px;
+}
+.shsu-icon{
+    max-width: 15%;
+    max-height: 15%;
+    position: absolute;
+    margin: 0% 85% 43% 0%;
+    transition: transform 0.5s;;
+}
+.shsu-icon:hover{
+    transform: scale(1.05);
+}
+.icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.icon::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3px solid #f56423;
+    position: absolute;
+    transform: translate(-4px, -4px);
+}
+.icon::after {
+    content: '';
+    width: 3px;
+    height: 12px;
+    background-color: #f56423;
+    transform: translate(6px, 6px) rotate(315deg);
+}
+.textInput {
+    width: 320px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 60px;
+}
+.textInput input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+.clear {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 22%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clear::before {
+    content: '';
+    width: 1px;
+    height: 15px;
+    background-color: #999;
+    transform: rotate(45deg);
+    position: absolute;
+}
+.clear::after {
+    content: '';
+    width: 1px;
+    height: 15px;
+    background-color: #999;
+    transform: rotate(315deg);
+}
+#go {
+    width: 12%;
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .4);
+    background:#004990;
+}
+#go:hover {
+    cursor: pointer;
+    background-color: #ccc;
+}
+</style>
+</head>
+<body>
+    <div class="proj-container">
+        <img class="shsu-icon" src="C:\Users\minch\Downloads\SHSU-RGB_Orange20Box20Tilt20-20Orange20Uni20Name20S.png">
+        <div class='searchBar'>
+            <div class='icon'></div>
+            <div class='textInput'>
+                <input type='text' id='searchInput' placeholder='Enter a SamID'>
+                <input type='submit' value='go' id='go'>
+                <div class='clear'></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let $ = tName => {
+            return document.querySelector(tName);
+        }
+        let oSearchBar = $('.searchBar');
+        let oIcon = $('.icon');
+        let oClear = $('.clear');
+        let oText = $('input[type="text"]');
+
+        oIcon.addEventListener('click', () => {
+            oSearchBar.classList.toggle('changeWidth');
+        });
+
+        document.getElementById('go').addEventListener('click', function (event) {
+            const searchQuery = document.getElementById('searchInput').value;
+            if (searchQuery === '123456789') {
+                window.location.href = 'blankpage.html';
+            }
+        });
+    </script>
+</body>
